@@ -1,41 +1,32 @@
 #include <stdio.h>
 
 /**
- * main - Entry point for program
+ * main - prints 00 to 89
  *
  * Return: 0
  * and a non-zero, if error
  */
 int main(void)
 {
-	int i, k = '0', j;
+	int ones;
+	int tens;
 
-	for (i = '0'; i <= '9'; i++)
+	for (tens = '0'; tens <= '9'; tens++)
 	{
-		for (j = k; j <= '9'; j++)
+		for (ones = (tens + 1); ones <= '9'; ones++)
 		{
-			if (i != j)
-			{
-				putchar(i);
-				putchar(j);
-			}
-			if (i != j)
-			{
-				continue;
-			}
-			if (i == '8' && j == '9')
-			{
-				break;
-			}
-			else
+			putchar(tens);
+			putchar(ones);
+
+			if (tens != '8' || ones != '9')
 			{
 				putchar(',');
 				putchar(' ');
 			}
 		}
-		k++;
 	}
 	putchar('\n');
+
 	return (0);
 }
 
