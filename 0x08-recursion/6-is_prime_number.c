@@ -1,41 +1,31 @@
 #include "main.h"
 
 /**
- * is_square_root - determines the square root of
- * @j: an input value
- * @i: input value
+ * is_divisible - checks if a number is divisible by a divisor.
+ * @num: target number
+ * @div: divisor
  *
- * Description: determines the square root
- * Return: returns the input val
+ * Return: 1 if num is divisible by div, otherwise 0
  */
-
-int is_square_root(int i, int j)
+int is_divisible(int num, int div)
 {
-	if (j * j > i)
-	{
-		return (-1);
-	}
-	if (j * j == i)
-	{
-		return (j);
-	}
-	return (is_square_root(i, j + 1));
+	if (num % div == 0)
+		return (1);
+	if (div == num / 2)
+		return (0);
+	return (is_divisible(num, div + 1));
 }
 
 /**
- * _sqrt_recursion - returns square root
- * @n: input size
- *
- * Description: If n does not have a natural square root,
- * the function should return -1
- * Return: returns the natural square root of a number
+ * is_prime_number - check if a number is a prime number
+ * @n: target number
+ * Return: 1 if num is a prime, otherwise 0
  */
-
-int _sqrt_recursion(int n)
+int is_prime_number(int n)
 {
-	if (n < 0)
-	{
-		return (-1);
-	}
-	return (is_square_root(n, 1));
+	if (n < 2)
+		return (0);
+	if (n == 2 || n == 3)
+		return (1);
+	return (is_divisible(n, 2) ? 0 : 1);
 }
